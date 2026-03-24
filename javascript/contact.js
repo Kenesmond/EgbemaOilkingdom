@@ -114,23 +114,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Google Maps initialization
     window.initMap = function() {
-        const egbemaLocation = { lat: 4.8156, lng: 7.0498 };
-        
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 10,
-            center: egbemaLocation,
-            mapTypeId: 'roadmap',
-            styles: [
-                {
-                    featureType: "all",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#667eea" }]
-                }
-            ]
-        });
-        
+    const egbemaLocation = { lat: 5.4968, lng: 7.0258 }; // Updated coordinates
+    
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: egbemaLocation,
+        mapTypeId: 'roadmap',
+        styles: [
+            {
+                featureType: "all",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#667eea" }]
+            }
+        ]
+    });
+    
+    const marker = new google.maps.Marker({
+        position: egbemaLocation,
+        map: map,
+        title: "Egbema, Imo/Revers State",
+        animation: google.maps.Animation.DROP,
+        icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"
+        }
+    });
+    
+    const infowindow = new google.maps.InfoWindow({
+        content: `
+            <div style="color: #333; padding: 5px;">
+                <h4 style="color: #667eea; margin-bottom: 5px;">Egbema, Imo/Revers State</h4>
+                <p style="margin: 0;">Imo State, Nigeria</p>
+                <p style="margin: 0;"><i class="icon ion-ios-telephone"></i> +234 123 456 7890</p>
+            </div>
+        `
+    });
+    
+    marker.addListener("click", () => {
+        infowindow.open(map, marker);
+    });
+}
+       
         const marker = new google.maps.Marker({
             position: egbemaLocation,
             map: map,
@@ -154,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
         marker.addListener("click", () => {
             infowindow.open(map, marker);
         });
-    }
+    });
+
     
     // Newsletter subscription
     const newsletterForm = document.querySelector('footer form');
@@ -230,4 +255,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
+

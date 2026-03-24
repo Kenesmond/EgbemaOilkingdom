@@ -4,7 +4,7 @@ const communities = [
             name: "Mmahu",
             history: "Mmahu is one of the oldest communities in Egbema Kingdom, established over 300 years ago by migrant fishermen from the Ijaw heartland. The community has preserved its ancestral traditions and played a significant role in the early palm oil trade.",
             location: "Central Egbema, along the river banks",
-            population: "Approximately 8,500 residents",
+            population: "Approximately 8,500 residents with 12 Villages",
             traditions: "Annual Mmahu Fishing Festival, Masquerade Dance, New Yam Festival",
             landmarks: "Ancient Mmahu Shrine, Community Square, Mmahu River Port",
             ruler: "HRH name pending",
